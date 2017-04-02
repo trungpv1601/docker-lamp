@@ -16,5 +16,13 @@ services:
       - ./html:/var/www/html
     depends_on:
       - mysql
+  admin:
+    image: "phpmyadmin/phpmyadmin"
+    ports:
+      - '8080:80'
+    links:
+      - mysql:db
+    depends_on:
+      - mysql
 volumes:
   db:
